@@ -19,11 +19,13 @@
 <tbody>
 @foreach ($estudiantes as $estudiantes)
 <tr>
-<td>{{ $articulo->id }}</td>
-<td>{{ $articulo->codigo }}</td>
-<td>{{ $articulo->descripcion }}</td>
-<td>{{ $articulo->cantidad }}</td>
-<td>{{ $articulo->precio }}</td>
+<td>{{ $estudiantes->id }}</td>
+<td>{{ $estudiantes->nif }}</td>
+<td>{{ $estudiantes->nombres }}</td>
+<td>{{ $estudiantes->apellidos }}</td>
+<td>{{ $estudiantes->fecha_nacimiento }}</td>
+<td>{{ $estudiantes->localidad }}</td>
+<td>{{ $estudiantes->telefono }}</td>
 <td>
 <div class="btn-group" role="group" aria-label="Basic example">
 <button type="button" class="btn btn-primary">Reducir</button>

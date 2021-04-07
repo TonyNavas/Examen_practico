@@ -36,12 +36,12 @@ class EstudiantesControlador extends Controller
     {
         $NIF = $request ->get('nif');
         $nombres = $request ->get('nombre');
-        $apellido = $request ->get('apellido');
+        $apellidos = $request ->get('apellido');
         $fecha_nacimiento = $request ->get('fecha_nacimiento');
         $localidad = $request ->get('localidad');
         $telefono = $request ->get('telefono');
         
-        DB::Insert('insert into estudiantes(nif,nombre,apellido,fecha_nacimiento) values (?,?,?,?,?)', [$nif,$nombre,$apellido,$fecha_nacimiento,$localidad,$telefono]);
+        DB::Insert('insert into estudiantes(nif,nombre,apellido,fecha_nacimiento) values (?,?,?,?,?)', [$NIF,$nombres,$apellidos,$fecha_nacimiento,$localidad,$telefono]);
 
         return redirect('/estudiantes');
     }
@@ -80,7 +80,7 @@ class EstudiantesControlador extends Controller
     {
         DB::table('estudiantes')->where('id',$id)->decrement('cantidad',1);
 
-        return redirect('/articulos');
+        return redirect('/estudiantes');
     }
 
     /**
@@ -91,9 +91,9 @@ class EstudiantesControlador extends Controller
      */
     public function destroy($id)
     {
-        $articulo = Articulo::find($id);
+        $articulo = Estudiante::find($id);
         $articulo->delete();
 
-        return redirect('/articulos');
+        return redirect('/estudiantes');
     }
 }
